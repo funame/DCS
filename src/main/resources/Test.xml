@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item id="1">
+		<question>Capital of Azerbaijan</question>
+		<answers>
+			<answer>Roma</answer>
+			<answer>Madrid</answer>
+			<answer right="true">Baku</answer>
+			<answer>Ankara</answer>
+		</answers>
+	</item>
+		<item id="1">
+		<question>Best programing language</question>
+		<answers>
+			<answer>PHP</answer>
+			<answer right="true">Java</answer>
+			<answer >Code academy</answer>
+			<answer>Ruby</answer>
+		</answers>
+	</item>
+</items>

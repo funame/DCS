@@ -20,6 +20,10 @@ import com.journaldev.spring.service.PersonService;
 
 import java.util.Locale;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class TestController {
 	@Autowired
@@ -70,4 +74,21 @@ public class TestController {
 	   }
 
 
+	   
+		  @RequestMapping(value="/cook",method = RequestMethod.GET)
+		   public String printHello12(HttpServletResponse response) {
+			  Cookie ck=new Cookie("user","sonoo jaiswal");//creating cookie object 
+			  System.out.println(ck.getMaxAge());
+			  ck.setMaxAge(60*60);
+			  response.addCookie(ck);
+		     return "hello";
+		   }
+		  @RequestMapping(value="/cook1",method = RequestMethod.GET)
+		   public String printHello11(HttpServletRequest request) {
+			    Cookie ck[]=request.getCookies();  
+			    for(int i=0;i<ck.length;i++){  
+			     System.out.println("<br>"+ck[i].getName()+" "+ck[i].getValue());//printing name and value of cookie  
+			    }  
+		     return "hello";
+		   }
 }
