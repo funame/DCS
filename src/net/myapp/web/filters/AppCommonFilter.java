@@ -19,12 +19,7 @@ import net.myapp.common.web.holders.ResponseHolder;
 public class AppCommonFilter implements Filter  {
 		   public void  init(FilterConfig config) 
 		                         throws ServletException{
-		    /*  // Get init parameter 
-		      String testParam = config.getInitParameter("test-param"); 
-
-		      //Print the init parameter 
-		      System.out.println("Test Param: " + testParam); */
-		   }
+				   }
 
 		   private void doBeforeProcessing(HttpServletRequest request, HttpServletResponse response)
 		   {
@@ -47,8 +42,8 @@ public class AppCommonFilter implements Filter  {
 		            * coding the user name, the value can be retrieved from a HTTP
 		            * Request object.
 		            */
-				   HttpServletRequest rq=(HttpServletRequest) request;
-				   HttpSession session=rq.getSession();
+				    HttpServletRequest rq=(HttpServletRequest) request;
+				    HttpSession session=rq.getSession();
 				   
 		            MDC.put("sessionInfo", session.getId()+"!"+session.getCreationTime());
 
@@ -72,10 +67,7 @@ public class AppCommonFilter implements Filter  {
 		    */ 
 			 RequestHolder.remove();
 		     ResponseHolder.remove();
-		     /*WebSessionHolder.remove();*/
+		     //WebSessionHolder.remove();
 		   }
-		   public void destroy( ){
-		      /* Called before the Filter instance is removed 
-		      from service by the web container*/
-		   }
+		   public void destroy( ){ }
 }

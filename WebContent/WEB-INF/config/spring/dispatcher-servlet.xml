@@ -40,6 +40,14 @@
         <beans:property name="defaultEncoding" value="UTF-8" />
     </beans:bean>
  
+ <!-- 
+  <beans:bean id="errorMessageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <beans:property name="basename" value="/WEB-INF/i18n/error_messages" />
+        <beans:property name="defaultEncoding" value="UTF-8" />
+    </beans:bean>
+     -->
+    
     <beans:bean id="localeResolver"
         class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
         <beans:property name="defaultLocale" value="en" />
@@ -64,7 +72,7 @@
         destroy-method="close">
         <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <beans:property name="url"
-            value="jdbc:mysql://localhost:3306/webapp" />
+            value="jdbc:mysql://localhost:3306/cardsystem" />
         <beans:property name="username" value="root" />
         <beans:property name="password" value="" />
     </beans:bean>
@@ -74,11 +82,7 @@
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
         <beans:list>
-                <beans:value>com.journaldev.spring.model.Person</beans:value>
-                <beans:value>net.myapp.model.Student</beans:value>
-                <beans:value>net.myapp.model.Subject</beans:value> 
-                <beans:value>net.myapp.model.Teacher</beans:value>
-                <beans:value>net.myapp.model.Groups</beans:value> 
+                <beans:value>net.myapp.dao.model.SecureUser</beans:value> 
         </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -90,31 +94,13 @@
         </beans:property>
     </beans:bean>
      
-    <beans:bean id="personDAO" class="com.journaldev.spring.dao.PersonDAOImpl">
+<!--     <beans:bean id="personDAO" class="com.journaldev.spring.dao.PersonDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
-    
-    <beans:bean id="studentDAO" class="com.journaldev.spring.dao.StudentDAOImpl">
+ -->    
+    <beans:bean id="secureUserDAO" class="net.myapp.dao.SecureUserDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
-    
-    <!-- <beans:bean id="teacherDAO" class="com.journaldev.spring.dao.TeacherDAOImpl">
-        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </beans:bean>
-    
-    
-    <beans:bean id="groupsDAO" class="com.journaldev.spring.dao.GroupsDAOImpl">
-        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </beans:bean>
-     -->
-    <beans:bean id="subjectDAO" class="com.journaldev.spring.dao.SubjectDAOImpl">
-        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </beans:bean>
-    
-<!--     <beans:bean id="personService" class="com.journaldev.spring.service.PersonServiceImpl">
-        <beans:property name="personDAO" ref="personDAO"></beans:property>
-    </beans:bean> -->
-
     
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">

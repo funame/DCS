@@ -8,14 +8,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/jquery/jquery-1.10.1.min.js"></script>
 <title></title>
-</head>
+</head>	   
  <body>
  <h1>header11</h1>
+
+ <jsp:include page="${partial}.jsp" />
  
- <jsp:include page="jsp/${partial}.jsp" /> 
-
-
  <h1>footer</h1>
  
  </body>
