@@ -42,6 +42,7 @@ public class AdminController {
 	public String printHello2(@RequestParam(defaultValue = "null") String login,
 			@RequestParam(defaultValue = "null") String pass) {
 		return "test";
+		//new bracnh
 	}
 	
 
