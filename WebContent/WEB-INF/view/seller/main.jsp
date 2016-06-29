@@ -13,7 +13,7 @@
 <title></title>
 </head>	   
  <body>
- <h1>header11</h1>
+ <h1>header seller</h1>
 
  <jsp:include page="${partial}.jsp" />
  

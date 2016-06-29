@@ -52,6 +52,8 @@
     <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+  
   <filter>
     <filter-name>AppCommonFilter</filter-name>
     <filter-class> net.myapp.web.filters.AppCommonFilter</filter-class>
@@ -64,4 +66,16 @@
     <filter-name>AppCommonFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class> net.myapp.web.filters.AuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/admin/*</url-pattern>
+    <url-pattern>/seller/*</url-pattern>
+  </filter-mapping>
+  
+  
 </web-app>

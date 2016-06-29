@@ -30,7 +30,8 @@ public class MyViewResolver extends InternalResourceViewResolver {
 			if (RequestHelper.isAJAXRequest()) {
 				viewName = this.defaultViewParent + this.ajaxContentPath + partial;
 				Log.debug("ajax view name : " + viewName);
-			} else {
+			}
+			else {
 				if (SecureUserUtil.isAdmin()) {
 					viewName = "view/admin/" + this.defaultViewTemplate;
 				} else if (SecureUserUtil.isSeller()) {
@@ -39,6 +40,7 @@ public class MyViewResolver extends InternalResourceViewResolver {
 				else {
 					viewName = this.defaultViewParent + this.defaultViewTemplate;
 				}
+				
 				RequestHelper.setAttribute("partial", partial);
 				Log.debug("view partial  name : " + partial);
 

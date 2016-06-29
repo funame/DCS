@@ -27,7 +27,7 @@ import net.myapp.helper.secure.Utils;
 
 @Controller
 
-public class AdminController {
+public class SellerController {
 	@Autowired
 	private MessageSource messageSource;
 
@@ -36,15 +36,11 @@ public class AdminController {
 	// private SecureUserDAOImpl secureUserDAOImpl;
 	private SecureUserDAO secureUserDAO;
 
-	
-	
-	@RequestMapping(value = "/admin/first", method = RequestMethod.GET)
-	public String printHello2(@RequestParam(defaultValue = "null") String login,
+	@RequestMapping(value = "/seller/first", method = RequestMethod.GET)
+	public String printHello3(@RequestParam(defaultValue = "null") String login,
 			@RequestParam(defaultValue = "null") String pass) {
 		return "test";
 	}
-	
-
 
 
 }

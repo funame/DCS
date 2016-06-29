@@ -40,16 +40,13 @@ public class SecurePanelController {
 	@RequestMapping(value = "panel/login", method = RequestMethod.GET)
 	public String printHello(@RequestParam(defaultValue = "null") String login,
 			@RequestParam(defaultValue = "null") String pass) {
-		
-		  
-System.out.println(login);
+
+		System.out.println(login);
 		if (!CommonUtil.isNullOrEmpty(login)) {
 			Log.debug("login : " + login);
 			SecureUser secureUser;
 			try {
 				secureUser = secureUserDAO.getSecureUser(login);
-
-				
 
 				System.out.println(Utils.getMD5(pass));
 				if (secureUser.getPass().equals(Utils.getMD5(pass))) {
@@ -69,34 +66,18 @@ System.out.println(login);
 			}
 
 		}
- 
-		
-		if (SecureUserUtil.isAdmin())                              return "redirect:/admin/first";
-		else 	if (SecureUserUtil.isSeller())					   return "redirect:/seller/first";
+
+		if (SecureUserUtil.isAdmin())
+			return "redirect:/admin/first";
+		else if (SecureUserUtil.isSeller())
+			return "redirect:/seller/first";
 		return "login";
 	}
-	
+
 	@RequestMapping(value = "panel/logout", method = RequestMethod.GET)
 	public String printHello1() {
-        WebSessionHelper.clearSessionData();
-        return "login";
+		WebSessionHelper.clearSessionData();
+		return "login";
 	}
-	
-	@RequestMapping(value = "/admin/first", method = RequestMethod.GET)
-	public String printHello2(@RequestParam(defaultValue = "null") String login,
-			@RequestParam(defaultValue = "null") String pass) {
-		return "test";
-	}
-	
-	@RequestMapping(value = "/seller/first", method = RequestMethod.GET)
-	public String printHello3(@RequestParam(defaultValue = "null") String login,
-			@RequestParam(defaultValue = "null") String pass) {
-		
-		//WebSessionHelper.set("name", object);
-		//WebAuthHelper.getAuthenticatedSecureUser();
-		
-		return "test";
-	}
-
 
 }
