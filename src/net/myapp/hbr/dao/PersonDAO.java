@@ -1,4 +1,4 @@
-package com.journaldev.spring.dao;
+package net.myapp.hbr.dao;
  
 import java.util.List;
  

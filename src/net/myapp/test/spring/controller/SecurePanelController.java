@@ -2,9 +2,11 @@ package net.myapp.test.spring.controller;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
@@ -21,7 +23,9 @@ import net.myapp.dao.SecureUserDAO;
 import net.myapp.dao.SecureUserDAOImpl;
 import net.myapp.dao.model.SecureUser;
 import net.myapp.dao.model.SecureUserEnum;
+import net.myapp.dao.model.UserCard;
 import net.myapp.exception.user.UserNotFoundException;
+import net.myapp.hbr.dao.UserDAOImpl;
 import net.myapp.helper.CommonUtil;
 import net.myapp.helper.SecureUserUtil;
 import net.myapp.helper.secure.Utils;
@@ -35,6 +39,10 @@ public class SecurePanelController {
 	@Autowired(required = true)
 	@Qualifier(value = "secureUserDAO")
 	private SecureUserDAO secureUserDAO;
+
+	@Autowired(required = true)
+	@Qualifier(value = "userDAO")
+	private UserDAOImpl userDAOImpl;
 
 	//// normal page passing to default/jsp folder page inside of main.jsp
 	@RequestMapping(value = "panel/login", method = RequestMethod.GET)
@@ -78,6 +86,30 @@ public class SecurePanelController {
 	public String printHello1() {
 		WebSessionHelper.clearSessionData();
 		return "login";
+	}
+	@RequestMapping(value = "test", method = RequestMethod.GET)
+	public String printHello4() {
+		
+		
+		for (UserCard userCard : userDAOImpl.getById(1).getUserCardSet()) {
+
+			/*System.out.println("user balance : "+userCard.getBalance());
+			System.out.println("seller name : "+userCard.getSeller().getName());
+			System.out.println("card code :"+userCard.getCard().getCode());
+			System.out.println("card type :"+userCard.getCard().getCardType().getName());
+			*/
+			
+			RequestHelper.setAttribute("UserCard",userCard);
+			
+			List<Object[]> list=userDAOImpl.getTest(userCard.getId());
+			RequestHelper.setAttribute("Report",list);
+			
+			/*		for (Object[] objects : list) {
+				System.out.println(objects[0].toString());
+               // System.out.println(objects[1].toString());
+			}
+	*/	}
+		return "test";
 	}
 
 }

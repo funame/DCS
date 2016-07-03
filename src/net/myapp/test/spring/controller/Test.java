@@ -3,9 +3,8 @@ package net.myapp.test.spring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.journaldev.spring.dao.PersonDAO;
-import com.journaldev.spring.dao.StudentDAOImpl;
-
+import net.myapp.hbr.dao.PersonDAO;
+import net.myapp.hbr.dao.StudentDAOImpl;
 import net.myapp.model.Student;
 
 public class Test {

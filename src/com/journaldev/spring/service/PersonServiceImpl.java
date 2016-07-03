@@ -4,9 +4,10 @@ import java.util.List;
  
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
- 
-import com.journaldev.spring.dao.PersonDAO;
+
 import com.journaldev.spring.model.Person;
+
+import net.myapp.hbr.dao.PersonDAO;
  
 @Service
 public class PersonServiceImpl implements PersonService {

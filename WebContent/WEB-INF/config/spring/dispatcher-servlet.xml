@@ -82,8 +82,15 @@
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
         <beans:list>
-                <beans:value>net.myapp.dao.model.SecureUser</beans:value> 
-        </beans:list>
+                <beans:value>net.myapp.dao.model.SecureUser</beans:value>
+                <beans:value>net.myapp.dao.model.User</beans:value>
+                <beans:value>net.myapp.dao.model.UserCard</beans:value>
+                <beans:value>net.myapp.dao.model.Card</beans:value>
+                <beans:value>net.myapp.dao.model.CardType</beans:value>
+                <beans:value>net.myapp.dao.model.Order</beans:value>
+                <beans:value>net.myapp.dao.model.OrderDetail</beans:value>
+                <beans:value>net.myapp.dao.model.Good</beans:value>
+         </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
             <beans:props>
@@ -94,10 +101,10 @@
         </beans:property>
     </beans:bean>
      
-<!--     <beans:bean id="personDAO" class="com.journaldev.spring.dao.PersonDAOImpl">
+ <beans:bean id="userDAO" class="net.myapp.hbr.dao.UserDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
- -->    
+    
     <beans:bean id="secureUserDAO" class="net.myapp.dao.SecureUserDAOImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>

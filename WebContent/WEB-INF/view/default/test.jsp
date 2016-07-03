@@ -12,7 +12,25 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 	</head>
 	<body>
-	salam
-	<spring:message code="application.title.bank" />
+
+	
+	Balance: ${UserCard.balance}<br/>
+    Card code:${UserCard.card.code}<br/>
+    Card type name:${UserCard.card.cardType.name}<br/>
+   
+
+    <c:forEach items="${Report}" var="data">
+
+       userCard.balance-----${data[0].balance}<br>
+       order.date---------${data[1].odate}"<br>
+       orderDetail.gcount---------${data[2].gcount}<br>
+       good.name---------${data[3].name}<br>
+       card.code---------${data[4].code}<br>
+       cardType.name---------${data[5].name}<br>
+
+</c:forEach>
+
+
+
 	</body>
 </html>
